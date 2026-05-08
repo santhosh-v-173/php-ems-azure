@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 require 'conn.php';
 
 session_start();
-   
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,7 +19,7 @@ session_start();
     <title>Login</title>
   </head>
   <body>
-    
+
 
     <div class="container">
         <div class="row justify-content-center mt-5">
@@ -48,12 +48,12 @@ session_start();
         </div>
     </div>
     <!-- login -->
-    <?php 
-    
+    <?php
+
     if( isset( $_POST['u_login'] ) ){
         $u_name = $_POST['u_name'];
         $u_pass = md5($_POST['u_pass']);
-        
+
 
        $sql = "SELECT * FROM users WHERE u_name='$u_name'";
        $result = mysqli_query($conn,$sql);
@@ -63,7 +63,8 @@ session_start();
            while($user = mysqli_fetch_assoc($result)){
                if($u_name == $user['u_name'] && $u_pass == $user['u_pass']){
                    $_SESSION['u_name'] = $u_name;
-                    header('Location:dash.php');
+                        echo "<script> window.location.href='dash.php'; </script>";
+                        exit();
                }else{
                    echo "<script> alert('Wrong Username or Password')</script>";
                }
@@ -72,7 +73,7 @@ session_start();
            echo "<script> alert('Username && password do not exist')</script>";
        }
     }
-    
+
     ?>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
