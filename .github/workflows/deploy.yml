@@ -1,47 +1,31 @@
-name: Build and Deploy to Azure
+name: Build and Push Docker Image
 
 on:
   push:
     branches:
       - main
 
-env:
-  ACR_NAME: emsregistry5173
-  IMAGE_NAME: php-ems
-
 jobs:
 
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
 
-    - name: Checkout Code
+    - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Login to Azure
-      uses: azure/login@v2
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
     - name: Login to ACR
-      run: |
-        docker login ${{ secrets.ACR_LOGIN_SERVER }} \
-        -u ${{ secrets.ACR_USERNAME }} \
-        -p ${{ secrets.ACR_PASSWORD }}
-
-    - name: Build Docker Image
-      run: |
-        docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/php-ems:${{ github.sha }} .
-
-    - name: Push Docker Image
-      run: |
-        docker push ${{ secrets.ACR_LOGIN_SERVER }}/php-ems:${{ github.sha }}
-
-    - name: Deploy to Azure Container Apps
-      uses: azure/container-apps-deploy-action@v1
+      uses: docker/login-action@v3
       with:
-        acrName: emsregistry5173
-        containerAppName: ems-container-app
-        resourceGroup: bitcot-rg
-        imageToDeploy: ${{ secrets.ACR_LOGIN_SERVER }}/php-ems:${{ github.sha }}
+        registry: emsregistry.azurecr.io
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+
+    - name: Build Docker image
+      run: |
+        docker build -t emsregistry.azurecr.io/php-ems:${{ github.sha }} .
+
+    - name: Push Docker image
+      run: |
+        docker push emsregistry.azurecr.io/php-ems:${{ github.sha }}
