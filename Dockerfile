@@ -21,7 +21,8 @@ RUN mkdir -p /run/php \
     && chown www-data:www-data /run/php
 
 # ── PHP-FPM pool config (socket path must match nginx.conf) ──
-COPY www.conf /usr/local/etc/php-fpm.d/www.conf
+RUN rm -f /usr/local/etc/php-fpm.d/www.conf
+COPY zz-docker.conf /usr/local/etc/php-fpm.d/zz-docker.conf
 
 # ── Nginx config ──────────────────────────────────────────────
 # Remove the default site, copy ours in
