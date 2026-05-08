@@ -2,7 +2,7 @@
 #  EMS – PHP 8.2 + Nginx + Supervisord
 #  Single container: php-fpm talks to nginx via Unix socket
 # ─────────────────────────────────────────────────────────────
-FROM php:8.2-fpm
+FROM php:8.3-fpm
 
 # ── System packages ───────────────────────────────────────────
 RUN apt-get update && apt-get install -y \
