@@ -32,10 +32,6 @@ COPY nginx.conf /etc/nginx/conf.d/ems.conf
 # ── Supervisord config ────────────────────────────────────────
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# ── PHP settings ─────────────────────────────────────────────
-RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
-COPY php.ini /usr/local/etc/php/conf.d/ems.ini
-
 # ── Application source ────────────────────────────────────────
 COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
