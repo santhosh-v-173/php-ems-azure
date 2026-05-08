@@ -37,7 +37,7 @@ RUN cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 COPY php.ini /usr/local/etc/php/conf.d/ems.ini
 
 # ── Application source ────────────────────────────────────────
-COPY app/ /var/www/html/
+COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
