@@ -724,7 +724,10 @@ ems-project/
 ## Application URL
 
 ```text
-<add-container-app-url>
+---- VM Deployment ----
+1. http://20.125.41.131/
+---- CI/CD Deployment ----  
+2. https://ems-container-app--0000015.wittyriver-74631584.southindia.azurecontainerapps.io/
 ```
 
 ---
@@ -732,7 +735,7 @@ ems-project/
 ## GitHub Repository URL
 
 ```text
-<add-github-repository-url>
+https://github.com/santhosh-v-173/php-ems-azure
 ```
 
 ---
