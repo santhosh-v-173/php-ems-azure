@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require 'conn.php';
 session_start();
@@ -44,7 +44,7 @@ if( !$_SESSION['u_name'] ){
                 <div class="panel panel-default">
                     <div class="panel-heading">Edit Employee</div>
                     <form action="" method="POST">
-                        <?php 
+                        <?php
                         $id = $_GET['e_id'];
                           $sql = "SELECT * FROM employees WHERE e_id =('$id')";
                           $result = mysqli_query($conn,$sql);
@@ -68,8 +68,8 @@ if( !$_SESSION['u_name'] ){
                            }else{
                             echo " 0 reult";
                            }
-                          
-                              
+
+
                         ?>
                         </form>
                 </div>
@@ -77,7 +77,7 @@ if( !$_SESSION['u_name'] ){
         </div>
     </div>
 
-            <?php 
+            <?php
                 if(isset($_POST['e_update'])){
                     $e_name = $_POST['e_name'];
                     $e_email = $_POST['e_email'];
@@ -86,12 +86,13 @@ if( !$_SESSION['u_name'] ){
                     $sql = "UPDATE employees SET e_name ='$e_name',e_email='$e_email',e_phone='$e_phone' WHERE e_id='$id'";
 
                     if(mysqli_query($conn,$sql)){
-                        header('Location:dash.php');
+                        echo "<script> window.location.href='dash.php'; </script>";
+                        exit();
                     }else{
                         echo "ERROR: ". $sql.mysqli_error($conn);
                     }
                 }
-            
+
             ?>
 
     <!-- main content -->

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require 'conn.php';
 session_start();
@@ -44,7 +44,7 @@ if( !$_SESSION['u_name'] ){
                 <div class="panel panel-default">
                     <div class="panel-heading">Edit Job</div>
                     <form action="" method="POST">
-                        <?php 
+                        <?php
                           $id=$_GET['j_id'];
                           $sql = "SELECT * FROM jobs WHERE j_id =('$id')";
                           $result = mysqli_query($conn,$sql);
@@ -68,8 +68,8 @@ if( !$_SESSION['u_name'] ){
                            }else{
                             echo " 0 reult";
                            }
-                          
-                              
+
+
                         ?>
                         </form>
                 </div>
@@ -77,7 +77,7 @@ if( !$_SESSION['u_name'] ){
         </div>
     </div>
 
-            <?php 
+            <?php
                 if(isset($_POST['e_update'])){
                     $a_job = $_POST['a_job'];
                     $a_position = $_POST['a_position'];
@@ -86,12 +86,13 @@ if( !$_SESSION['u_name'] ){
                     $sql = "UPDATE jobs SET a_job ='$a_job',a_position ='$a_position',a_discription='$a_discription' WHERE j_id='$id'";
 
                     if(mysqli_query($conn,$sql)){
-                        header('Location:job_list.php');
+                        echo "<script> window.location.href='job_list.php'; </script>";
+                        exit();
                     }else{
                         echo "ERROR: ". $sql.mysqli_error($conn);
                     }
                 }
-            
+
             ?>
 
     <!-- main content -->
