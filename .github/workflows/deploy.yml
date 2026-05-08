@@ -1,18 +1,6 @@
 # ─────────────────────────────────────────────────────────────────────────────
 #  EMS – Build → ACR → Azure Container Apps
 # ─────────────────────────────────────────────────────────────────────────────
-#
-#  Required GitHub Secrets:
-#    ACR_USERNAME          – ACR admin username  (emsregistry)
-#    ACR_PASSWORD          – ACR admin password
-#    AZURE_CREDENTIALS     – JSON from: az ad sp create-for-rbac --sdk-auth
-#    AZURE_RESOURCE_GROUP  – e.g. ems-rg
-#    CONTAINER_APP_NAME    – e.g. ems-app
-#    DB_HOST               – Azure MySQL FQDN
-#    DB_NAME               – ems_db
-#    DB_USER               – appuser@<server>
-#    DB_PASS               – your password
-# ─────────────────────────────────────────────────────────────────────────────
 
 name: Build and Deploy EMS
 
