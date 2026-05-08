@@ -27,7 +27,7 @@ COPY www.conf /usr/local/etc/php-fpm.d/www.conf
 # Remove the default site, copy ours in
 RUN rm -f /etc/nginx/sites-enabled/default \
     && rm -f /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d/ems.conf
+COPY nginx/default.conf /etc/nginx/conf.d/ems.conf
 
 # ── Supervisord config ────────────────────────────────────────
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
