@@ -85,7 +85,7 @@ jobs:
           resourceGroup:    ${{ secrets.AZURE_RESOURCE_GROUP }}
           containerAppName: ${{ secrets.CONTAINER_APP_NAME }}
           imageToDeploy:    ${{ env.ACR_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.build.outputs.image_tag }}
-          acrName:          ${{ env.ACR_REGISTRY }}
+          acrName:          emsregistry
           acrUsername:      ${{ secrets.ACR_USERNAME }}
           acrPassword:      ${{ secrets.ACR_PASSWORD }}
           targetPort:       80
