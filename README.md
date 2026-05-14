@@ -444,12 +444,12 @@ Demonstrate:
 
 ## Application URL
 
-```text
 ---- VM Deployment ----
+```text
 http://20.125.41.131/
 ```
-```text
 ---- CI/CD Deployment ----  
+```text
 2. https://ems-container-app--0000018.wittyriver-74631584.southindia.azurecontainerapps.io/
 ```
 
