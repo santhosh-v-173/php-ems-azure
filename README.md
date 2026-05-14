@@ -448,7 +448,7 @@ Demonstrate:
 ---- VM Deployment ----
 1. http://20.125.41.131/
 ---- CI/CD Deployment ----  
-2. https://ems-container-app--0000015.wittyriver-74631584.southindia.azurecontainerapps.io/
+2. https://ems-container-app--0000018.wittyriver-74631584.southindia.azurecontainerapps.io/
 ```
 
 ---
