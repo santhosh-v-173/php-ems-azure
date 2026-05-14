@@ -446,7 +446,9 @@ Demonstrate:
 
 ```text
 ---- VM Deployment ----
-1. http://20.125.41.131/
+http://20.125.41.131/
+```
+```text
 ---- CI/CD Deployment ----  
 2. https://ems-container-app--0000018.wittyriver-74631584.southindia.azurecontainerapps.io/
 ```
